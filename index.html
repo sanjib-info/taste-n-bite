@@ -17,6 +17,8 @@
       body{background:#f2f5f2;color:#202923;font-family:Inter,"Segoe UI",Arial,sans-serif}
       .field{font-size:16px}
       .field{border:1px solid transparent!important;background:transparent!important}
+      .item .qty,.item .uom,.item .price,.product-wrap .product,#customer-name,#customer-mobile,#customer-address,#advance{border:1px solid #e2e8e3!important;background:#fff!important;border-radius:8px;padding:8px 9px}
+      .item .qty:focus,.item .uom:focus,.item .price:focus,.product-wrap .product:focus,#customer-name:focus,#customer-mobile:focus,#customer-address:focus,#advance:focus{border-color:#d77999!important;box-shadow:0 0 0 3px rgba(194,43,97,.09)}
       .date-control{display:block;min-width:0;max-width:100%;box-sizing:border-box;text-align:left;direction:ltr;white-space:nowrap;background:#fff;border:1px solid #e2e8e3;border-radius:8px;padding:9px 8px}
       .date-control-wrap{position:relative;display:block;width:145px;min-width:0}
       main{max-width:820px;margin:28px auto 52px}
@@ -91,6 +93,11 @@
       .delivery{gap:8px;padding:9px 10px}
       .items-head{padding:9px}
       .item{padding:10px;gap:7px 9px}
+      .item{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .qty-cell,.uom-cell,.rate-cell{grid-column:auto}
+      .amount-cell{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;border-top:1px solid #eee8ec;padding-top:5px}
+      .product-wrap .product,#customer-name,#customer-mobile,#customer-address{border:1px solid #e2e8e3!important;background:#fff!important;border-radius:8px;padding:8px 9px}
+      .product-wrap .product:focus,#customer-name:focus,#customer-mobile:focus,#customer-address:focus{border-color:#d77999!important;box-shadow:0 0 0 3px rgba(194,43,97,.09)}
       .item .field{padding:7px 6px}
       .summary{padding:10px 12px}
       .words{font-size:12px}
@@ -139,9 +146,9 @@
 <body>
   <main>
     <section class="sheet" aria-label="Invoice">
-      <div class="toprow"><div class="invoice-brand"><img class="seal" src="TB-PNG.webp" alt="Taste 'N' Bite logo"><img class="wordmark" src="Tnb-Text.webp" alt="Taste 'N' Bite"></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field date-control" id="invoice-date" type="date" required aria-label="Invoice date"></div></div>
+      <div class="toprow"><div class="invoice-brand"><img class="seal" src="TB-PNG.webp" alt="Taste 'N' Bite logo"><img class="wordmark" src="Tnb-Text.webp" alt="Taste 'N' Bite"></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field date-control" id="invoice-date" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" pattern="(?:0[1-9]|[12][0-9]|3[01])/(?:0[1-9]|1[0-2])/[0-9]{4}" maxlength="10" required aria-label="Invoice date in day, month, year format"></div></div>
       <div class="parties"><div><div class="section-label">From</div><input class="field party-name" value="Taste 'N' Bite" required aria-label="Your business name"><textarea class="field party-details" placeholder="Address · Email · Phone" required aria-label="Your business details">GHOSH BROTHERS FOOD SERVICES&#10;Phone: 8013247400</textarea></div><div><div class="section-label">Bill to</div><input class="field party-name" id="customer-name" placeholder="Customer name" required aria-label="Customer name"><div class="customer-meta"><input class="field" id="customer-mobile" type="tel" placeholder="Contact number" required aria-label="Customer contact number"></div><textarea class="field party-details" id="customer-address" placeholder="Customer address" aria-label="Customer details"></textarea></div></div>
-      <div class="delivery"><label><span>Delivery date</span><span class="date-control-wrap"><input class="field date-control" id="delivery-date" type="date" required aria-label="Delivery date"></span></label></div>
+      <div class="delivery"><label><span>Delivery date</span><span class="date-control-wrap"><input class="field date-control" id="delivery-date" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" pattern="(?:0[1-9]|[12][0-9]|3[01])/(?:0[1-9]|1[0-2])/[0-9]{4}" maxlength="10" required aria-label="Delivery date in day, month, year format"></span></label></div>
       <div class="items-head"><span>Item name</span><span>Qty</span><span>UOM</span><span>Rate</span><span>Amount</span><span></span></div>
       <div id="items"></div><button type="button" class="add-row" id="add-row">＋ Add a product</button>
       <div class="summary"><div class="summary-inner"><div class="sum-line"><span>Amount</span><strong id="subtotal">₹0.00</strong></div><div class="sum-line"><label for="advance">Advance</label><input class="field" id="advance" type="number" min="0" step="0.01" value="0" aria-label="Advance payment"></div><div class="sum-line total"><span>Balance</span><strong id="balance">₹0.00</strong></div></div></div>
@@ -192,9 +199,12 @@
 
     function newOrderNumber(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().replace(/[-:T]/g,'').slice(0,12);return `INV-${date}`}
     function ensureOrderNumber(){const field=document.querySelector('#invoice-number');if(!field.value.trim())field.value=newOrderNumber();return field.value.trim()}
-    function validateInvoice(){const rows=[...items.querySelectorAll('.item')];if(!rows.length){addItem();alert('Add at least one product before downloading the invoice.');items.querySelector('.product').focus();return false}for(const field of document.querySelectorAll('.sheet [required]')){if(!field.reportValidity())return false}return true}
+    function validateInvoice(){const rows=[...items.querySelectorAll('.item')];if(!rows.length){addItem();alert('Add at least one product before downloading the invoice.');items.querySelector('.product').focus();return false}for(const id of ['invoice-date','delivery-date']){const field=document.querySelector('#'+id),match=field.value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);let valid=false;if(match){const day=Number(match[1]),month=Number(match[2]),year=Number(match[3]),date=new Date(year,month-1,day);valid=date.getFullYear()===year&&date.getMonth()===month-1&&date.getDate()===day}field.setCustomValidity(valid?'':'Enter a valid date as dd/mm/yyyy.')}for(const field of document.querySelectorAll('.sheet [required]')){if(!field.reportValidity())return false}return true}
     document.querySelector('#invoice-number').addEventListener('blur',ensureOrderNumber);
-    function setCurrentDateTime(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);document.querySelector('#invoice-date').value=date}
+    function formatDate(date){return `${String(date.getDate()).padStart(2,'0')}/${String(date.getMonth()+1).padStart(2,'0')}/${date.getFullYear()}`}
+    function bindDateFormat(id){const field=document.querySelector('#'+id);field.addEventListener('input',()=>{const digits=field.value.replace(/\D/g,'').slice(0,8);field.value=digits.length>4?`${digits.slice(0,2)}/${digits.slice(2,4)}/${digits.slice(4)}`:digits.length>2?`${digits.slice(0,2)}/${digits.slice(2)}`:digits;field.setCustomValidity('')})}
+    bindDateFormat('invoice-date');bindDateFormat('delivery-date');
+    function setCurrentDateTime(){document.querySelector('#invoice-date').value=formatDate(new Date())}
     const clearDialog=document.querySelector('#clear-dialog');
     document.querySelector('#clear').addEventListener('click',()=>clearDialog.showModal());
     document.querySelector('#cancel-clear').addEventListener('click',()=>clearDialog.close());
