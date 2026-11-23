@@ -12,23 +12,134 @@
     .summary{display:flex;justify-content:flex-end;border-top:1px solid var(--line);padding-top:16px}.summary-inner{width:300px}.sum-line{display:flex;justify-content:space-between;align-items:center;padding:5px 0;color:var(--muted);font-size:14px}.sum-line strong{color:var(--ink);font-weight:600}.sum-line input{width:110px;text-align:right}.sum-line.total{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-size:16px;color:var(--ink);font-weight:700}.sum-line.total strong{font-size:21px;color:var(--green);letter-spacing:-.5px}.words{margin-top:14px;font-size:13px;font-weight:600;font-style:italic}.note{margin-top:20px;padding-top:15px;border-top:1px solid var(--line)}.note .field{font-size:13px;color:var(--muted)}.actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px}.hint{font-size:12px;color:var(--muted)}.buttons{display:flex;gap:9px}.btn{border:1px solid #dfe2da;background:#fff;color:var(--ink);border-radius:9px;padding:10px 15px;font:600 13px inherit;cursor:pointer}.btn:hover{background:#f7f8f5}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.primary:hover{background:#28583a}.btn.whatsapp{color:#167746;border-color:#b9ddc8}.btn.whatsapp:hover{background:#eff9f2}
     @media(max-width:650px){main{margin:14px auto 28px;padding:0 9px}.sheet{padding:18px 12px;border-radius:12px}.toprow{flex-direction:column;gap:16px}.invoice-title h2{font-size:29px}.meta{grid-template-columns:auto 1fr;max-width:100%}.meta label{text-align:left}.meta input{text-align:left}.parties{gap:16px;grid-template-columns:1fr;padding:18px 0}.party-details.field{min-height:42px}.customer-meta input{max-width:none}.delivery{gap:8px 14px}.delivery label{flex:1;min-width:145px}.delivery input{width:100%;display:block}.items-head{display:none}.item{position:relative;grid-template-columns:1fr 1fr;gap:7px 10px;margin:0 0 9px;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff}.product-wrap{grid-column:1/-1;padding-right:27px}.product-wrap .product{font-size:14px;padding:7px 5px}.qty-cell,.uom-cell,.rate-cell,.amount-cell{min-width:0}.mobile-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700;padding:0 4px}.item .field{padding:5px 4px;font-size:14px}.item .qty,.item .uom,.item .price{text-align:left}.amount-cell{display:flex;flex-direction:column;align-items:flex-end;justify-content:end}.amount{font-size:14px;padding:5px 4px}.remove{position:absolute;right:7px;top:7px;width:27px;height:27px}.add-row{margin:5px 0 18px;padding:8px 2px}.summary-inner{width:100%;max-width:none}.sum-line{padding:6px 2px}.sum-line input{font-size:15px}.words{line-height:1.45}.actions{align-items:stretch;flex-direction:column}.buttons{width:100%;flex-wrap:wrap}.btn{flex:1;padding:10px 8px;min-width:135px}.hint{line-height:1.4}}
     @media print{@page{size:A5 portrait;margin:10mm}body{background:#fff;font-size:11px}.topbar,.heading,.actions,.add-row,.remove{display:none!important}main{max-width:none;margin:0;padding:0}.sheet{border:0;box-shadow:none;border-radius:0;padding:0}.field{border:0!important;background:transparent!important;padding-left:0!important;padding-right:0!important;resize:none;appearance:none}.toprow{padding-bottom:15px}.parties{padding:14px 0 10px}.items-head,.item{grid-template-columns:minmax(105px,1fr) 38px 43px 60px 70px 0;gap:4px}.items-head{font-size:9px;padding:7px}.item{padding:5px 0}.item .field{font-size:10px;padding:2px}.amount{font-size:10px;padding-right:3px}.delivery{padding-bottom:12px}.words{font-size:11px}.note{break-inside:avoid}.summary-inner{width:260px}}
+    @media screen and (max-width:650px){.field,.item .field,.meta input,.customer-meta input,.delivery input,.sum-line input{font-size:16px}.item .field{padding:5px 4px}.product-wrap .product{font-size:16px}.add-row,.btn{min-height:44px}.remove{min-width:36px;min-height:36px}.buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.btn{min-width:0;white-space:normal}}
+    @media screen{
+      body{background:#f2f5f2;color:#202923;font-family:Inter,"Segoe UI",Arial,sans-serif}
+      .field{font-size:16px}
+      main{max-width:820px;margin:28px auto 52px}
+      .sheet{padding:34px 38px;border:1px solid #e0e7e1;border-radius:16px;box-shadow:0 16px 42px rgba(32,55,39,.08)}
+      .toprow{align-items:center;padding-bottom:22px;border-color:#e4e9e4}
+      .invoice-brand{display:flex;align-items:center;gap:12px;min-width:0}
+      .invoice-brand .seal{width:72px;height:72px;object-fit:contain;border-radius:50%}
+      .invoice-brand .wordmark{width:min(190px,28vw);height:auto;max-height:58px;object-fit:contain}
+      .meta{padding:13px 15px;gap:8px 12px;background:#f5f8f5;border:1px solid #e7ede7;border-radius:11px;color:#66736a}
+      .meta{grid-template-columns:68px 210px;gap:8px 10px}
+      .meta label,.meta input{text-align:left}
+      #invoice-number{min-width:210px}
+      .meta label{font-size:11px;font-weight:700;letter-spacing:.4px}
+      .meta .field{font-weight:600;color:#293a2e}
+      .parties{gap:14px;padding:20px 0 14px}
+      .parties>div{min-width:0;padding:13px 14px;background:#fbfcfa;border:1px solid #e9ede9;border-radius:11px}
+      .section-label{color:#64756a;letter-spacing:1px;margin-bottom:7px}
+      .party-name{font-size:15px;color:#26372b}
+      .party-details.field{min-height:54px;line-height:1.5}
+      .customer-meta{margin-top:4px}
+      .customer-meta .field{padding-left:8px}
+      .delivery{align-items:center;margin:1px 0 2px;padding:10px 12px;background:#f5f8f5;border:1px solid #e8ede8;border-radius:10px}
+      .delivery label{font-size:12px;font-weight:600;color:#637168}
+      .delivery input{color:#28392e;font-weight:600}
+      .items-head{background:#edf2ed;color:#526257;border-radius:8px;padding:11px 10px;font-size:10px;letter-spacing:.8px}
+      .item{padding:9px 3px;border-color:#e9ede9}
+      .item .field{background:#fbfcfb;border:1px solid #edf0ed;border-radius:6px;padding:7px 6px}
+      .item .product{font-weight:500}
+      .item .field:focus{border-color:#8fb09a;background:#fff;box-shadow:0 0 0 3px rgba(50,103,71,.09)}
+      .amount{font-weight:600;color:#33463a}
+      .remove{color:#89948c}
+      .remove:hover{background:#fcefee}
+      .add-row{font-weight:700}
+      .summary{border:1px solid #e6ebe6;border-radius:11px;background:#f8faf8;padding:12px 15px;margin-top:0}
+      .summary-inner{width:290px}
+      .sum-line{font-size:13px;color:#68756c}
+      .sum-line.total{border-color:#dfe7e0;margin-top:6px;padding-top:11px;font-size:14px}
+      .sum-line.total strong{font-size:21px;color:#2e6542}
+      .words{color:#536359;line-height:1.5}
+      .note{border-color:#e6ebe6}
+      .note .field{background:#fbfcfb;border:1px solid #edf0ed;border-radius:7px;padding:9px 10px}
+      .actions{align-items:center}
+      .actions{justify-content:center}
+      .buttons{justify-content:center}
+      .hint{color:#758078}
+      .btn{border-radius:8px;padding:10px 15px;transition:background .15s,border-color .15s,transform .15s}
+      .btn:active{transform:translateY(1px)}
+      .btn.primary{background:#2f6240;border-color:#2f6240;box-shadow:0 3px 8px rgba(47,98,64,.16)}
+      .btn.primary:hover{background:#264f34}
+    }
+    @media screen and (max-width:650px){
+      main{margin:12px auto 26px;padding:0 9px}
+      .sheet{padding:20px 13px;border-radius:13px}
+      .toprow{gap:13px;padding-bottom:17px}
+      .invoice-brand{gap:9px}
+      .invoice-brand .seal{width:58px;height:58px}
+      .invoice-brand .wordmark{width:min(180px,55vw);max-height:50px}
+      .meta{width:100%;padding:10px 12px}
+      .meta{grid-template-columns:auto minmax(0,1fr)}
+      #invoice-number{min-width:0}
+      .parties{gap:10px;padding:15px 0 12px}
+      .parties>div{padding:11px;border-radius:9px}
+      .delivery{gap:8px;padding:9px 10px}
+      .items-head{padding:9px}
+      .item{padding:10px;gap:7px 9px}
+      .item .field{padding:7px 6px}
+      .summary{padding:10px 12px}
+      .words{font-size:12px}
+      .note{margin-top:15px;padding-top:12px}
+      .actions{gap:8px}
+      .buttons{display:flex;width:auto;justify-content:center;flex-wrap:wrap}
+      .btn{flex:0 1 auto;min-width:140px}
+    }
+    @media screen{
+      :root{--ink:#29263f;--muted:#777183;--line:#e9e3e8;--green:#2b2948;--bg:#f6f4f6;--soft:#fbf0f4}
+      body{background:#f6f4f6;color:#29263f}
+      .invoice-title h2{color:#29263f}
+      .meta,.delivery{background:#faf7f9;border-color:#eee6eb}
+      .meta label,.delivery label,.section-label{color:#75596b}
+      .parties>div{background:#fdfbfc;border-color:#eee8ec}
+      .items-head{background:#faeef3;color:#574252}
+      .item .field:focus,.note .field:focus{border-color:#d77999;background:#fff;box-shadow:0 0 0 3px rgba(194,43,97,.09)}
+      .add-row{color:#a91f50}
+      .amount{color:#39324a}
+      .summary{background:#fcf9fb;border-color:#ece5ea}
+      .sum-line.total{border-color:#e8dfe5}
+      .sum-line.total strong{color:#29263f}
+      .words{color:#665362}
+      .btn.clear-btn{background:#b7443d;border-color:#b7443d;color:#fff}
+      .btn.clear-btn:hover{background:#9e3933}
+      .btn.download-btn{background:#29263f;border-color:#29263f;color:#fff;box-shadow:0 3px 8px rgba(41,38,63,.18)}
+      .btn.download-btn:hover{background:#1f1d33}
+    }
+    @media screen{
+      .confirm-dialog{width:min(420px,calc(100vw - 32px));padding:0;border:1px solid #e1e8e1;border-radius:16px;background:#fff;color:#202923;box-shadow:0 24px 70px rgba(23,40,28,.22)}
+      .confirm-dialog::backdrop{background:rgba(22,32,25,.45);backdrop-filter:blur(3px)}
+      .confirm-body{padding:24px}
+      .confirm-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#fdf1ed;color:#a74732;font-size:21px;font-weight:700;margin-bottom:15px}
+      .confirm-dialog h2{margin:0 0 7px;font-size:20px;letter-spacing:-.4px}
+      .confirm-dialog p{margin:0;color:#727c74;font-size:14px;line-height:1.5}
+      .confirm-actions{display:flex;justify-content:flex-end;gap:9px;padding:14px 24px 20px;border-top:1px solid #edf0ed}
+      .confirm-actions .btn{min-height:42px}
+      .btn.danger{background:#a74732;border-color:#a74732;color:#fff}
+      .btn.danger:hover{background:#8f3928}
+    }
   </style>
 </head>
 <body>
   <main>
     <section class="sheet" aria-label="Invoice">
-      <div class="toprow"><div class="invoice-title"><h2>Invoice</h2><p>Thanks for your business.</p></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field" id="invoice-date" type="date" aria-label="Invoice date"></div></div>
-      <div class="parties"><div><div class="section-label">From</div><input class="field party-name" value="Taste 'N' Bite" aria-label="Your business name"><textarea class="field party-details" placeholder="Address · Email · Phone" aria-label="Your business details">GHOSH BROTHERS FOOD SERVICES&#10;West Bengal · Mob. 8013247400</textarea></div><div><div class="section-label">Bill to</div><input class="field party-name" id="customer-name" placeholder="Customer name" aria-label="Customer name"><div class="customer-meta"><input class="field" id="customer-mobile" type="tel" placeholder="Contact number" aria-label="Customer contact number"></div><textarea class="field party-details" id="customer-address" placeholder="Customer address" aria-label="Customer details"></textarea></div></div>
-      <div class="delivery"><label>Delivery date <input class="field" id="delivery-date" type="date" aria-label="Delivery date"></label></div>
+      <div class="toprow"><div class="invoice-brand"><img class="seal" src="TB-PNG.webp" alt="Taste 'N' Bite logo"><img class="wordmark" src="Tnb-Text.webp" alt="Taste 'N' Bite"></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field" id="invoice-date" type="date" required aria-label="Invoice date"></div></div>
+      <div class="parties"><div><div class="section-label">From</div><input class="field party-name" value="Taste 'N' Bite" required aria-label="Your business name"><textarea class="field party-details" placeholder="Address · Email · Phone" required aria-label="Your business details">GHOSH BROTHERS FOOD SERVICES&#10;West Bengal · Mob. 8013247400</textarea></div><div><div class="section-label">Bill to</div><input class="field party-name" id="customer-name" placeholder="Customer name" required aria-label="Customer name"><div class="customer-meta"><input class="field" id="customer-mobile" type="tel" placeholder="Contact number" required aria-label="Customer contact number"></div><textarea class="field party-details" id="customer-address" placeholder="Customer address" aria-label="Customer details"></textarea></div></div>
+      <div class="delivery"><label>Delivery date <input class="field" id="delivery-date" type="date" required aria-label="Delivery date"></label></div>
       <div class="items-head"><span>Item name</span><span>Qty</span><span>UOM</span><span>Rate</span><span>Amount</span><span></span></div>
       <div id="items"></div><button type="button" class="add-row" id="add-row">＋ Add a product</button>
       <div class="summary"><div class="summary-inner"><div class="sum-line"><span>Amount</span><strong id="subtotal">₹0.00</strong></div><div class="sum-line"><label for="advance">Advance</label><input class="field" id="advance" type="number" min="0" step="0.01" value="0" aria-label="Advance payment"></div><div class="sum-line total"><span>Balance</span><strong id="balance">₹0.00</strong></div></div></div>
       <div class="words" id="amount-words">Zero Rupees Only</div>
       <div class="note"><div class="section-label">Note</div><input class="field" id="invoice-note" placeholder="Add a thank-you note or payment details" aria-label="Invoice note"></div>
     </section>
-    <div class="actions"><span class="hint">Download a mobile-friendly copy of the invoice.</span><div class="buttons"><button class="btn" type="button" id="clear">Clear invoice</button><button class="btn" type="button" id="download">Download invoice</button></div></div>
+    <div class="actions"><div class="buttons"><button class="btn clear-btn" type="button" id="clear">Clear invoice</button><button class="btn download-btn" type="button" id="download">Download invoice</button></div></div>
   </main>
-  <template id="item-template"><div class="item"><div class="product-wrap"><input class="field product" placeholder="Search products…" aria-label="Search products" autocomplete="off"><div class="suggestions" hidden></div></div><label class="qty-cell"><span class="mobile-label">Qty</span><input class="field qty" type="number" min="0" step="1" value="1" aria-label="Quantity"></label><label class="uom-cell"><span class="mobile-label">UOM</span><input class="field uom" value="PCS" aria-label="Unit of measure"></label><label class="rate-cell"><span class="mobile-label">Rate</span><input class="field price" type="number" min="0" step="0.01" placeholder="0.00" aria-label="Unit price"></label><div class="amount-cell"><span class="mobile-label">Amount</span><span class="amount">₹0.00</span></div><button class="remove" type="button" aria-label="Remove product">×</button></div></template>
+  <dialog class="confirm-dialog" id="clear-dialog" aria-labelledby="clear-dialog-title" aria-describedby="clear-dialog-message">
+    <div class="confirm-body"><div class="confirm-icon" aria-hidden="true">!</div><h2 id="clear-dialog-title">Clear this invoice?</h2><p id="clear-dialog-message">This will remove the entered items and customer details. You can’t undo this action.</p></div>
+    <div class="confirm-actions"><button class="btn" type="button" id="cancel-clear">Keep invoice</button><button class="btn danger" type="button" id="confirm-clear">Clear invoice</button></div>
+  </dialog>
+  <template id="item-template"><div class="item"><div class="product-wrap"><input class="field product" placeholder="Search products…" aria-label="Search products" autocomplete="off" required><div class="suggestions" hidden></div></div><label class="qty-cell"><span class="mobile-label">Qty</span><input class="field qty" type="number" min="1" step="1" value="1" aria-label="Quantity" required></label><label class="uom-cell"><span class="mobile-label">UOM</span><input class="field uom" value="PCS" aria-label="Unit of measure" required></label><label class="rate-cell"><span class="mobile-label">Rate</span><input class="field price" type="number" min="0" step="0.01" placeholder="0.00" aria-label="Unit price" required></label><div class="amount-cell"><span class="mobile-label">Amount</span><span class="amount">₹0.00</span></div><button class="remove" type="button" aria-label="Remove product">×</button></div></template>
   <script>
     const currency = new Intl.NumberFormat('en-IN', { style:'currency', currency:'INR' });
     const items = document.querySelector('#items'); const template = document.querySelector('#item-template'); let productCatalog = [];
@@ -46,9 +157,9 @@
     function updateTotals(){let subtotal=0;items.querySelectorAll('.item').forEach(row=>{const qty=Math.max(0,Number(row.querySelector('.qty').value)||0),rate=Math.max(0,Number(row.querySelector('.price').value)||0),amount=qty*rate;subtotal+=amount;row.querySelector('.amount').textContent=currency.format(amount)});const advance=Math.max(0,Number(document.querySelector('#advance').value)||0);document.querySelector('#subtotal').textContent=currency.format(subtotal);document.querySelector('#balance').textContent=currency.format(subtotal-advance);document.querySelector('#amount-words').textContent=numberWords(subtotal)+' Rupees Only'}
     document.querySelector('#advance').addEventListener('input',updateTotals);document.querySelector('#add-row').addEventListener('click',()=>addItem());
     function escapeHtml(value){return String(value??'').replace(/[&<>\"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[char]))}
-    document.querySelector('#download').addEventListener('click',()=>{
+    document.querySelector('#download').addEventListener('click',async()=>{
+      if(!validateInvoice())return;
       const order=ensureOrderNumber();
-      const sellerName=document.querySelector('.parties > div:first-child .party-name').value.trim();
       const sellerDetails=document.querySelector('.parties > div:first-child .party-details').value.trim();
       const customer=document.querySelector('#customer-name').value.trim();
       const mobile=document.querySelector('#customer-mobile').value.trim();
@@ -57,16 +168,22 @@
       const deliveryDate=document.querySelector('#delivery-date').value;
       const note=document.querySelector('#invoice-note').value.trim();
       const rows=[...items.querySelectorAll('.item')].map((row,index)=>`<article class="item"><div class="item-head"><span>${index+1}. ${escapeHtml(row.querySelector('.product').value||'Item')}</span><b>${escapeHtml(row.querySelector('.amount').textContent)}</b></div><div class="item-info">Qty: ${escapeHtml(row.querySelector('.qty').value||0)} ${escapeHtml(row.querySelector('.uom').value||'')} · Rate: ${escapeHtml(currency.format(Number(row.querySelector('.price').value)||0))}</div></article>`).join('');
-      const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Invoice ${escapeHtml(order)}</title><style>*{box-sizing:border-box}body{margin:0;padding:16px;background:#f6f4ef;color:#222821;font:15px/1.5 Arial,sans-serif}.invoice{max-width:620px;margin:0 auto;background:white;border:1px solid #e8e9e2;border-radius:14px;padding:24px}.head{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e8e9e2;padding-bottom:16px}.head h1{font-size:27px;margin:0}.muted{color:#777e75;white-space:pre-line;font-size:13px}.order{text-align:right;font-size:13px}.parties{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px 0}.label{font-size:10px;font-weight:bold;letter-spacing:1px;color:#777e75;text-transform:uppercase}.name{font-weight:bold}.items{border-top:1px solid #e8e9e2}.item{padding:11px 0;border-bottom:1px solid #e8e9e2}.item-head{display:flex;justify-content:space-between;gap:10px;font-weight:600}.item-info{font-size:12px;color:#777e75;margin-top:3px}.totals{margin:14px 0 0 auto;max-width:300px}.line{display:flex;justify-content:space-between;padding:4px 0}.balance{font-weight:bold;font-size:19px;color:#326747;border-top:1px solid #e8e9e2;padding-top:9px}.words,.note{margin-top:14px;font-size:13px}.words{font-style:italic;font-weight:600}.delivery{margin-top:12px;font-size:13px}.thanks{text-align:center;margin-top:20px;font-size:12px;font-weight:bold}@media(max-width:480px){body{padding:8px}.invoice{padding:17px 14px;border-radius:10px}.head h1{font-size:23px}.parties{gap:8px}.item-head{font-size:14px}}@media print{body{background:white;padding:0}.invoice{border:0;border-radius:0;padding:0;max-width:none}}</style></head><body><main class="invoice"><div class="head"><div><h1>Invoice</h1><div class="muted">${escapeHtml(sellerName)}\n${escapeHtml(sellerDetails)}</div></div><div class="order"><b>Order No.</b><br>${escapeHtml(order)}<br><b>Date</b><br>${escapeHtml(date||'—')}</div></div><div class="parties"><div><div class="label">Bill to</div><div class="name">${escapeHtml(customer||'—')}</div><div class="muted">${mobile?'Contact number: '+escapeHtml(mobile):''}${customerAddress?'\n'+escapeHtml(customerAddress):''}</div></div><div><div class="label">Delivery</div><div>${escapeHtml(deliveryDate||'—')}</div></div></div><section class="items">${rows||'<div class="item">No items</div>'}</section><div class="totals"><div class="line"><span>Amount</span><span>${escapeHtml(document.querySelector('#subtotal').textContent)}</span></div><div class="line"><span>Advance</span><span>${escapeHtml(currency.format(Number(document.querySelector('#advance').value)||0))}</span></div><div class="line balance"><span>Balance</span><span>${escapeHtml(document.querySelector('#balance').textContent)}</span></div></div><div class="words">${escapeHtml(document.querySelector('#amount-words').textContent)}</div>${note?`<div class="note"><b>Note:</b> ${escapeHtml(note)}</div>`:''}<div class="thanks">Thank you for your purchase!</div></main></body></html>`;
+      const loadImage=async path=>{try{const response=await fetch(path);if(!response.ok)return path;const blob=await response.blob();return await new Promise(resolve=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>resolve(path);reader.readAsDataURL(blob)})}catch{return path}};
+      const [sealImage,wordmarkImage]=await Promise.all([loadImage('./TB-PNG.webp'),loadImage('./Tnb-Text.webp')]);
+      const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Invoice ${escapeHtml(order)}</title><style>*{box-sizing:border-box}body{margin:0;padding:16px;background:#f6f4ef;color:#222821;font:15px/1.5 Arial,sans-serif}.invoice{max-width:620px;margin:0 auto;background:white;border:1px solid #e8e9e2;border-radius:14px;padding:24px}.head{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e8e9e2;padding-bottom:16px}.head-brand{display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:230px}.brand-images{display:flex;align-items:center;gap:8px}.brand-images img:first-child{width:58px;height:58px;object-fit:contain}.brand-images img:last-child{width:145px;height:auto;max-height:48px;object-fit:contain}.muted{color:#777e75;white-space:pre-line;font-size:13px}.order{text-align:right;font-size:13px}.parties{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px 0}.label{font-size:10px;font-weight:bold;letter-spacing:1px;color:#777e75;text-transform:uppercase}.name{font-weight:bold}.items{border-top:1px solid #e8e9e2}.item{padding:11px 0;border-bottom:1px solid #e8e9e2}.item-head{display:flex;justify-content:space-between;gap:10px;font-weight:600}.item-info{font-size:12px;color:#777e75;margin-top:3px}.totals{margin:14px 0 0 auto;max-width:300px}.line{display:flex;justify-content:space-between;padding:4px 0}.balance{font-weight:bold;font-size:19px;color:#326747;border-top:1px solid #e8e9e2;padding-top:9px}.words,.note{margin-top:14px;font-size:13px}.words{font-style:italic;font-weight:600}.delivery{margin-top:12px;font-size:13px}.thanks{text-align:center;margin-top:20px;font-size:12px;font-weight:bold}@media(max-width:480px){body{padding:8px}.invoice{padding:17px 14px;border-radius:10px}.head-brand{max-width:165px}.brand-images img:first-child{width:45px;height:45px}.brand-images img:last-child{width:105px}.parties{gap:8px}.item-head{font-size:14px}}@media print{body{background:white;padding:0}.invoice{border:0;border-radius:0;padding:0;max-width:none}}</style></head><body><main class="invoice"><div class="head"><div class="head-brand"><div class="brand-images"><img src="${sealImage}" alt=""><img src="${wordmarkImage}" alt="Taste N Bite"></div><div class="muted">${escapeHtml(sellerDetails)}</div></div><div class="order"><b>Order No.</b><br>${escapeHtml(order)}<br><b>Date</b><br>${escapeHtml(date||'—')}</div></div><div class="parties"><div><div class="label">Bill to</div><div class="name">${escapeHtml(customer||'—')}</div><div class="muted">${mobile?'Contact number: '+escapeHtml(mobile):''}${customerAddress?'\n'+escapeHtml(customerAddress):''}</div></div><div><div class="label">Delivery</div><div>${escapeHtml(deliveryDate||'—')}</div></div></div><section class="items">${rows||'<div class="item">No items</div>'}</section><div class="totals"><div class="line"><span>Amount</span><span>${escapeHtml(document.querySelector('#subtotal').textContent)}</span></div><div class="line"><span>Advance</span><span>${escapeHtml(currency.format(Number(document.querySelector('#advance').value)||0))}</span></div><div class="line balance"><span>Balance</span><span>${escapeHtml(document.querySelector('#balance').textContent)}</span></div></div><div class="words">${escapeHtml(document.querySelector('#amount-words').textContent)}</div>${note?`<div class="note"><b>Note:</b> ${escapeHtml(note)}</div>`:''}<div class="thanks">Thank you for your purchase!</div></main></body></html>`;
       const blob=new Blob([html],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');
       link.href=url;link.download=`invoice-${order.replace(/[^a-z0-9_-]+/gi,'-')}.html`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
     });
 
     function newOrderNumber(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().replace(/[-:T]/g,'').slice(0,12);return `INV-${date}`}
     function ensureOrderNumber(){const field=document.querySelector('#invoice-number');if(!field.value.trim())field.value=newOrderNumber();return field.value.trim()}
+    function validateInvoice(){const rows=[...items.querySelectorAll('.item')];if(!rows.length){addItem();alert('Add at least one product before downloading the invoice.');items.querySelector('.product').focus();return false}for(const field of document.querySelectorAll('.sheet [required]')){if(!field.reportValidity())return false}return true}
     document.querySelector('#invoice-number').addEventListener('blur',ensureOrderNumber);
     function setCurrentDateTime(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);document.querySelector('#invoice-date').value=date;document.querySelector('#delivery-date').value=date}
-    document.querySelector('#clear').addEventListener('click',()=>{items.replaceChildren();document.querySelector('#customer-name').value='';document.querySelector('#customer-mobile').value='';document.querySelector('#customer-address').value='';document.querySelector('#invoice-note').value='';document.querySelector('#invoice-number').value=newOrderNumber();document.querySelector('#advance').value=0;setCurrentDateTime();addItem()});document.querySelector('#invoice-number').value=newOrderNumber();setCurrentDateTime();addItem();
+    const clearDialog=document.querySelector('#clear-dialog');
+    document.querySelector('#clear').addEventListener('click',()=>clearDialog.showModal());
+    document.querySelector('#cancel-clear').addEventListener('click',()=>clearDialog.close());
+    document.querySelector('#confirm-clear').addEventListener('click',()=>{clearDialog.close();items.replaceChildren();document.querySelector('#customer-name').value='';document.querySelector('#customer-mobile').value='';document.querySelector('#customer-address').value='';document.querySelector('#invoice-note').value='';document.querySelector('#invoice-number').value=newOrderNumber();document.querySelector('#advance').value=0;setCurrentDateTime();addItem()});document.querySelector('#invoice-number').value=newOrderNumber();setCurrentDateTime();addItem();
   </script>
 </body>
 </html>
