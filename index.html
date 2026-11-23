@@ -74,6 +74,8 @@
       .meta{width:100%;padding:10px 12px}
       .meta{grid-template-columns:auto minmax(0,1fr)}
       #invoice-number{min-width:0}
+      .meta #invoice-date{text-align:left;direction:ltr;justify-self:start}
+      .meta #invoice-date::-webkit-date-and-time-value{text-align:left;margin-left:0}
       .parties{gap:10px;padding:15px 0 12px}
       .parties>div{padding:11px;border-radius:9px}
       .delivery{gap:8px;padding:9px 10px}
@@ -92,6 +94,8 @@
       body{background:#f6f4f6;color:#29263f}
       .invoice-title h2{color:#29263f}
       .meta,.delivery{background:#faf7f9;border-color:#eee6eb}
+      .summary{display:block}
+      .summary-inner{width:100%;max-width:none}
       .meta label,.delivery label,.section-label{color:#75596b}
       .parties>div{background:#fdfbfc;border-color:#eee8ec}
       .items-head{background:#faeef3;color:#574252}
