@@ -16,6 +16,8 @@
     @media screen{
       body{background:#f2f5f2;color:#202923;font-family:Inter,"Segoe UI",Arial,sans-serif}
       .field{font-size:16px}
+      .field{border:1px solid transparent!important;background:transparent!important}
+      .date-control{display:block;min-width:0;max-width:100%;box-sizing:border-box;text-align:left;direction:ltr;white-space:nowrap;background:#fff;border:1px solid #e2e8e3;border-radius:8px;padding:9px 8px}
       main{max-width:820px;margin:28px auto 52px}
       .sheet{padding:34px 38px;border:1px solid #e0e7e1;border-radius:16px;box-shadow:0 16px 42px rgba(32,55,39,.08)}
       .toprow{align-items:center;padding-bottom:22px;border-color:#e4e9e4}
@@ -60,6 +62,7 @@
       .buttons{justify-content:center}
       .hint{color:#758078}
       .btn{border-radius:8px;padding:10px 15px;transition:background .15s,border-color .15s,transform .15s}
+      .btn{font-size:16px}
       .btn:active{transform:translateY(1px)}
       .btn.primary{background:#2f6240;border-color:#2f6240;box-shadow:0 3px 8px rgba(47,98,64,.16)}
       .btn.primary:hover{background:#264f34}
@@ -76,9 +79,11 @@
       #invoice-number{min-width:0}
       .meta #invoice-date{text-align:left;direction:ltr;justify-self:start}
       .meta #invoice-date::-webkit-date-and-time-value{text-align:left;margin-left:0}
-      .meta input[type=date],.delivery input[type=date]{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;text-align:left;direction:ltr;white-space:nowrap;background:#fff;border:1px solid #e2e8e3;border-radius:8px;padding:9px 8px}
-      .delivery label{display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:center;gap:10px;min-width:0;white-space:nowrap}
+      .date-control{width:100%}
+      .delivery label{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:10px;min-width:0;white-space:nowrap}
+      .delivery .date-control{width:clamp(120px,40vw,150px);max-width:100%}
       .meta #invoice-date{justify-self:stretch}
+      .date-control::-webkit-date-and-time-value{text-align:left;margin-left:0}
       .parties{gap:10px;padding:15px 0 12px}
       .parties>div{padding:11px;border-radius:9px}
       .delivery{gap:8px;padding:9px 10px}
@@ -103,6 +108,7 @@
       .parties>div{background:#fdfbfc;border-color:#eee8ec}
       .items-head{background:#faeef3;color:#574252}
       .item .field:focus,.note .field:focus{border-color:#d77999;background:#fff;box-shadow:0 0 0 3px rgba(194,43,97,.09)}
+      .field:focus{border-color:#d77999!important;background:#fff!important;box-shadow:0 0 0 3px rgba(194,43,97,.09)}
       .add-row{color:#a91f50}
       .amount{color:#39324a}
       .summary{background:#fcf9fb;border-color:#ece5ea}
@@ -131,9 +137,9 @@
 <body>
   <main>
     <section class="sheet" aria-label="Invoice">
-      <div class="toprow"><div class="invoice-brand"><img class="seal" src="TB-PNG.webp" alt="Taste 'N' Bite logo"><img class="wordmark" src="Tnb-Text.webp" alt="Taste 'N' Bite"></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field" id="invoice-date" type="date" required aria-label="Invoice date"></div></div>
+      <div class="toprow"><div class="invoice-brand"><img class="seal" src="TB-PNG.webp" alt="Taste 'N' Bite logo"><img class="wordmark" src="Tnb-Text.webp" alt="Taste 'N' Bite"></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field date-control" id="invoice-date" type="date" required aria-label="Invoice date"></div></div>
       <div class="parties"><div><div class="section-label">From</div><input class="field party-name" value="Taste 'N' Bite" required aria-label="Your business name"><textarea class="field party-details" placeholder="Address · Email · Phone" required aria-label="Your business details">GHOSH BROTHERS FOOD SERVICES&#10;Phone: 8013247400</textarea></div><div><div class="section-label">Bill to</div><input class="field party-name" id="customer-name" placeholder="Customer name" required aria-label="Customer name"><div class="customer-meta"><input class="field" id="customer-mobile" type="tel" placeholder="Contact number" required aria-label="Customer contact number"></div><textarea class="field party-details" id="customer-address" placeholder="Customer address" aria-label="Customer details"></textarea></div></div>
-      <div class="delivery"><label>Delivery date <input class="field" id="delivery-date" type="date" required aria-label="Delivery date"></label></div>
+      <div class="delivery"><label>Delivery date <input class="field date-control" id="delivery-date" type="date" required aria-label="Delivery date"></label></div>
       <div class="items-head"><span>Item name</span><span>Qty</span><span>UOM</span><span>Rate</span><span>Amount</span><span></span></div>
       <div id="items"></div><button type="button" class="add-row" id="add-row">＋ Add a product</button>
       <div class="summary"><div class="summary-inner"><div class="sum-line"><span>Amount</span><strong id="subtotal">₹0.00</strong></div><div class="sum-line"><label for="advance">Advance</label><input class="field" id="advance" type="number" min="0" step="0.01" value="0" aria-label="Advance payment"></div><div class="sum-line total"><span>Balance</span><strong id="balance">₹0.00</strong></div></div></div>
@@ -186,11 +192,11 @@
     function ensureOrderNumber(){const field=document.querySelector('#invoice-number');if(!field.value.trim())field.value=newOrderNumber();return field.value.trim()}
     function validateInvoice(){const rows=[...items.querySelectorAll('.item')];if(!rows.length){addItem();alert('Add at least one product before downloading the invoice.');items.querySelector('.product').focus();return false}for(const field of document.querySelectorAll('.sheet [required]')){if(!field.reportValidity())return false}return true}
     document.querySelector('#invoice-number').addEventListener('blur',ensureOrderNumber);
-    function setCurrentDateTime(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);document.querySelector('#invoice-date').value=date;document.querySelector('#delivery-date').value=date}
+    function setCurrentDateTime(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);document.querySelector('#invoice-date').value=date}
     const clearDialog=document.querySelector('#clear-dialog');
     document.querySelector('#clear').addEventListener('click',()=>clearDialog.showModal());
     document.querySelector('#cancel-clear').addEventListener('click',()=>clearDialog.close());
-    document.querySelector('#confirm-clear').addEventListener('click',()=>{clearDialog.close();items.replaceChildren();document.querySelector('#customer-name').value='';document.querySelector('#customer-mobile').value='';document.querySelector('#customer-address').value='';document.querySelector('#invoice-note').value='';document.querySelector('#invoice-number').value=newOrderNumber();document.querySelector('#advance').value=0;setCurrentDateTime();addItem()});document.querySelector('#invoice-number').value=newOrderNumber();setCurrentDateTime();addItem();
+    document.querySelector('#confirm-clear').addEventListener('click',()=>{clearDialog.close();items.replaceChildren();document.querySelector('#customer-name').value='';document.querySelector('#customer-mobile').value='';document.querySelector('#customer-address').value='';document.querySelector('#invoice-note').value='';document.querySelector('#invoice-number').value=newOrderNumber();document.querySelector('#advance').value=0;document.querySelector('#delivery-date').value='';setCurrentDateTime();addItem()});document.querySelector('#invoice-number').value=newOrderNumber();setCurrentDateTime();addItem();
   </script>
 </body>
 </html>
