@@ -1,0 +1,566 @@
+[
+  {
+    "product_name": "VEG MANCHURIAN PUFF",
+    "price": 20
+  },
+  {
+    "product_name": "VEG BURGER",
+    "price": 45
+  },
+  {
+    "product_name": "PANEER PUFF",
+    "price": 26
+  },
+  {
+    "product_name": "PANEER TIKKA WRAP",
+    "price": 54
+  },
+  {
+    "product_name": "NANDALAL PANEER PATTY",
+    "price": 35
+  },
+  {
+    "product_name": "VEG CORN SANDWICH",
+    "price": 35
+  },
+  {
+    "product_name": "VEG PATTIES",
+    "price": 22
+  },
+  {
+    "product_name": "SWEET CORN ROLL",
+    "price": 24
+  },
+  {
+    "product_name": "VEG CUTLET",
+    "price": 18
+  },
+  {
+    "product_name": "MINI PANEER MAKHANI PIZZA",
+    "price": 35
+  },
+  {
+    "product_name": "VEG MASALA PIZZA",
+    "price": 42
+  },
+  {
+    "product_name": "FISH FRY",
+    "price": 65
+  },
+  {
+    "product_name": "CHICKEN DD SANDWICH",
+    "price": 50
+  },
+  {
+    "product_name": "CHICKEN TIKKA PUFF",
+    "price": 40
+  },
+  {
+    "product_name": "Special Student's Combo",
+    "price": 50
+  },
+  {
+    "product_name": "CHICKEN HOTDOG",
+    "price": 46
+  },
+  {
+    "product_name": "CHICKEN SPRING ROLL",
+    "price": 40
+  },
+  {
+    "product_name": "CHICKEN 65",
+    "price": 56
+  },
+  {
+    "product_name": "CHICKEN CLAWS",
+    "price": 54
+  },
+  {
+    "product_name": "MINI CHICKEN BURGER",
+    "price": 21
+  },
+  {
+    "product_name": "CHICKEN INTRANET",
+    "price": 40
+  },
+  {
+    "product_name": "CHICKEN FRITTERS",
+    "price": 24
+  },
+  {
+    "product_name": "FISH CHOP",
+    "price": 26
+  },
+  {
+    "product_name": "CHICKEN PIE",
+    "price": 46
+  },
+  {
+    "product_name": "CHEESY CHICKEN BURGER",
+    "price": 58
+  },
+  {
+    "product_name": "CHEESY CLASSIC CHICKEN",
+    "price": 38
+  },
+  {
+    "product_name": "CHICKEN PIZZA",
+    "price": 50
+  },
+  {
+    "product_name": "CHICKEN CUTLET",
+    "price": 60
+  },
+  {
+    "product_name": "CHICKEN PATTIES",
+    "price": 30
+  },
+  {
+    "product_name": "COFFEE TOFFEE PASTRY",
+    "price": 30
+  },
+  {
+    "product_name": "STRAWBERRY PASTRY",
+    "price": 30
+  },
+  {
+    "product_name": "MANGO PASTRY",
+    "price": 28
+  },
+  {
+    "product_name": "CHOCO CARAMEL MOUSSE",
+    "price": 45
+  },
+  {
+    "product_name": "CHOCO BLAST",
+    "price": 34
+  },
+  {
+    "product_name": "CHOCO TRUFFLE PASTRY",
+    "price": 32
+  },
+  {
+    "product_name": "CHOCO DONUT",
+    "price": 44
+  },
+  {
+    "product_name": "BLACK FOREST PASTRY",
+    "price": 48
+  },
+  {
+    "product_name": "CHOCO BERRY PASTRY",
+    "price": 22
+  },
+  {
+    "product_name": "MALTA ORANGE PASTRY",
+    "price": 27
+  },
+  {
+    "product_name": "CHOCO CHIPS PASTRY",
+    "price": 32
+  },
+  {
+    "product_name": "ROSE PISTACHIO PASTRY",
+    "price": 36
+  },
+  {
+    "product_name": "WHITE FOREST PASTRY",
+    "price": 48
+  },
+  {
+    "product_name": "BUTTER SCOTCH PASTRY",
+    "price": 26
+  },
+  {
+    "product_name": "MANGO DONUT",
+    "price": 44
+  },
+  {
+    "product_name": "KACCHA MANGO PASTRY",
+    "price": 29
+  },
+  {
+    "product_name": "CHOCO CRUNCH PASTRY",
+    "price": 33
+  },
+  {
+    "product_name": "RED VELVET PASTRY",
+    "price": 50
+  },
+  {
+    "product_name": "CHOCO SACHER PASTRY",
+    "price": 42
+  },
+  {
+    "product_name": "CHOCO LAVA",
+    "price": 50
+  },
+  {
+    "product_name": "KESAR BADAM MOUSSE",
+    "price": 45
+  },
+  {
+    "product_name": "BLACK FOREST 500 GM",
+    "price": 440
+  },
+  {
+    "product_name": "BUTTER SCOTCH JUNIOR",
+    "price": 280
+  },
+  {
+    "product_name": "STRAWBERRY BLISS SMALL",
+    "price": 335
+  },
+  {
+    "product_name": "COOKIE CULTURE CAKE",
+    "price": 280
+  },
+  {
+    "product_name": "BLACK FOREST JUNIOR VEG",
+    "price": 330
+  },
+  {
+    "product_name": "NUTTY BUTTERSCOTCH SMALL",
+    "price": 365
+  },
+  {
+    "product_name": "MINI LION KING",
+    "price": 325
+  },
+  {
+    "product_name": "ROYAL MANGO CAKE",
+    "price": 310
+  },
+  {
+    "product_name": "CAKE PIPING",
+    "price": 1
+  },
+  {
+    "product_name": "MINI DUAL FOREST CAKE",
+    "price": 330
+  },
+  {
+    "product_name": "MANGO GLAZE SMALL",
+    "price": 335
+  },
+  {
+    "product_name": "ROSE PISTACHIO GARDEN",
+    "price": 320
+  },
+  {
+    "product_name": "CHOCOLATE NINZA SMALL",
+    "price": 420
+  },
+  {
+    "product_name": "MARBLE CRAZE",
+    "price": 280
+  },
+  {
+    "product_name": "RAJBHOG CAKE",
+    "price": 220
+  },
+  {
+    "product_name": "DREAMY VANILLA SMALL",
+    "price": 325
+  },
+  {
+    "product_name": "NUTTY CHOCOLATE CAKE",
+    "price": 285
+  },
+  {
+    "product_name": "CHOCO CHERRY BLOSSOM",
+    "price": 410
+  },
+  {
+    "product_name": "CHOCO VANILLA TWIST",
+    "price": 300
+  },
+  {
+    "product_name": "HEARTY CHOCOLATE SMALL",
+    "price": 400
+  },
+  {
+    "product_name": "ORANGE OASIS CAKE",
+    "price": 270
+  },
+  {
+    "product_name": "CHOCO CREST SMALL",
+    "price": 370
+  },
+  {
+    "product_name": "CHOCO CRUMBLE",
+    "price": 350
+  },
+  {
+    "product_name": "CHOCO DREAM",
+    "price": 230
+  },
+  {
+    "product_name": "PINEAPPLE PARADISE",
+    "price": 190
+  },
+  {
+    "product_name": "STRAWBERRY VANILLA FUSION SMALL",
+    "price": 350
+  },
+  {
+    "product_name": "TURBO TREAT",
+    "price": 325
+  },
+  {
+    "product_name": "WHITE FOREST (EGG LESS) 500 GM",
+    "price": 455
+  },
+  {
+    "product_name": "ESPRESSO DELIGHT",
+    "price": 325
+  },
+  {
+    "product_name": "RED VELVET DESIRE VEG",
+    "price": 370
+  },
+  {
+    "product_name": "MANGO GLAZE BIG",
+    "price": 650
+  },
+  {
+    "product_name": "CHOCO TRUFFLE CAKE",
+    "price": 280
+  },
+  {
+    "product_name": "CHOCO CREST BIG",
+    "price": 720
+  },
+  {
+    "product_name": "SMALL MILK BAR CAKE",
+    "price": 10
+  },
+  {
+    "product_name": "BLUEBERRY MUFFINS",
+    "price": 22
+  },
+  {
+    "product_name": "DATE-N-WALNUT SLICE CAKE (5 PCS)",
+    "price": 110
+  },
+  {
+    "product_name": "SMALL FRUIT BAR CAKE",
+    "price": 10
+  },
+  {
+    "product_name": "BIG CHOCOLATE BAR CAKE",
+    "price": 30
+  },
+  {
+    "product_name": "BROWNIEE",
+    "price": 40
+  },
+  {
+    "product_name": "VANILLA CROWN MUFFIN",
+    "price": 20
+  },
+  {
+    "product_name": "FRUIT SLICE CAKE (5 PCS)",
+    "price": 110
+  },
+  {
+    "product_name": "CHOCO CHIP MUFFINS",
+    "price": 20
+  },
+  {
+    "product_name": "SMALL CHOCOLATE BAR CAKE",
+    "price": 10
+  },
+  {
+    "product_name": "BIG FRUIT BAR CAKE",
+    "price": 30
+  },
+  {
+    "product_name": "BIG MILK BAR CAKE",
+    "price": 30
+  },
+  {
+    "product_name": "BUTTER SLICE CAKE (5 PCS)",
+    "price": 100
+  },
+  {
+    "product_name": "PIZZA BASE BIG (2PCS) 8 INCH",
+    "price": 30
+  },
+  {
+    "product_name": "PIZZA BASE BIG (2PCS)",
+    "price": 25
+  },
+  {
+    "product_name": "SWEET BUN EGGLESS",
+    "price": 12
+  },
+  {
+    "product_name": "CREAM ROLL",
+    "price": 20
+  },
+  {
+    "product_name": "MILK BREAD 400GM",
+    "price": 40
+  },
+  {
+    "product_name": "PIZZA BASE BIG (2PCS) 10 INCH",
+    "price": 50
+  },
+  {
+    "product_name": "BROWN BREAD 200GM",
+    "price": 24
+  },
+  {
+    "product_name": "MILK BREAD 200GM",
+    "price": 22
+  },
+  {
+    "product_name": "BURGER BUN (2 Pcs.)",
+    "price": 15
+  },
+  {
+    "product_name": "CREAM LOAF EGGLESS",
+    "price": 14
+  },
+  {
+    "product_name": "TAK JHAL MISTI CHANACHUR 400 GM.",
+    "price": 80
+  },
+  {
+    "product_name": "TAK JHAL MISTI CHANACHUR 200 GM.",
+    "price": 40
+  },
+  {
+    "product_name": "JHAL CHANACHUR 200 GM.",
+    "price": 40
+  },
+  {
+    "product_name": "NABARATNA CHANACHUR 400 GM.",
+    "price": 80
+  },
+  {
+    "product_name": "JHAL CHANACHUR 400 GM.",
+    "price": 80
+  },
+  {
+    "product_name": "CHEERA BHAJA 100 GM.",
+    "price": 25
+  },
+  {
+    "product_name": "NABARATNA CHANACHUR 200 GM.",
+    "price": 40
+  },
+  {
+    "product_name": "POTATO CHIPS (70 GM)",
+    "price": 22
+  },
+  {
+    "product_name": "COCTAIL SAMOSA (200GM.)",
+    "price": 55
+  },
+  {
+    "product_name": "DORBESH LADDU BOX (6PCS)",
+    "price": 120
+  },
+  {
+    "product_name": "CHANDRAKALA",
+    "price": 22
+  },
+  {
+    "product_name": "MOTICHUR LADDU",
+    "price": 16
+  },
+  {
+    "product_name": "KHEER ER GOJA",
+    "price": 20
+  },
+  {
+    "product_name": "MISTI MADHUR",
+    "price": 20
+  },
+  {
+    "product_name": "MANGO DOI",
+    "price": 35
+  },
+  {
+    "product_name": "GULAB JAMUN (5 PCS) CONTAINER",
+    "price": 85
+  },
+  {
+    "product_name": "Special Ghee er Laddu Box (9PCS)",
+    "price": 150
+  },
+  {
+    "product_name": "SOAN PAPDI",
+    "price": 80
+  },
+  {
+    "product_name": "KAJU BARFI",
+    "price": 20
+  },
+  {
+    "product_name": "ELEGANCE ALMOND CHOCOLATE",
+    "price": 50
+  },
+  {
+    "product_name": "ELEGANCE FRUIT & NUT CHOCOLATE",
+    "price": 45
+  },
+  {
+    "product_name": "ASSORTED CHOCOLATE BOX(200 GM)",
+    "price": 165
+  },
+  {
+    "product_name": "ELEGANCE MILK CHOCOLATE",
+    "price": 42
+  },
+  {
+    "product_name": "ASSORTED ROSE CHOCOLATE BOX(100 GM)",
+    "price": 125
+  },
+  {
+    "product_name": "LOLLYPOP",
+    "price": 13
+  },
+  {
+    "product_name": "METHI KHARI",
+    "price": 60
+  },
+  {
+    "product_name": "COFFEE TOFFEE COOKIES(250GM)",
+    "price": 90
+  },
+  {
+    "product_name": "ENERGY COOKIES(280GM)",
+    "price": 90
+  },
+  {
+    "product_name": "OSMANIA COOKIES EGGLESS",
+    "price": 42
+  },
+  {
+    "product_name": "HONEY CRUNCH COOKIES (200 GM)",
+    "price": 80
+  },
+  {
+    "product_name": "CHOCO CHIPS COOKIES(280GM)",
+    "price": 90
+  },
+  {
+    "product_name": "CHEESE STRAW",
+    "price": 50
+  },
+  {
+    "product_name": "PRIME TIME",
+    "price": 60
+  },
+  {
+    "product_name": "JEERA KHARI",
+    "price": 60
+  },
+  {
+    "product_name": "SHREWBURY COOKIES(200GM)",
+    "price": 85
+  }
+]
