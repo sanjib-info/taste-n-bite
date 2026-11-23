@@ -1,152 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monthly Bakery Profit Calculator</title>
-
-<style>
-body { font-family: Arial; background:#f5f5f5; padding:20px; margin:0; }
-.box { max-width:520px; margin:auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1);} 
-h2 { margin-bottom:10px; }
-label { font-weight:bold; }
-input { width:100%; padding:10px; margin:6px 0 12px; border:1px solid #ddd; border-radius:6px; }
-.card { margin-top:15px; padding:12px; border-radius:8px; }
-.opt1 { background:#e8f5e9; }
-.opt2 { background:#e3f2fd; }
-.warn { background:#fff3cd; margin-top:10px; padding:10px; border-radius:6px; }
-.best { border:2px solid green; }
-.bad { border:2px solid red; }
-.error { background:#f8d7da; color:#721c24; padding:10px; border-radius:6px; }
-
-table { width:100%; border-collapse:collapse; margin-top:15px; }
-th, td { border:1px solid #ddd; padding:8px; text-align:center; }
-th { background:#333; color:#fff; }
-.highlight { background:#c8e6c9; font-weight:bold; }
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f4ef">
+  <title>Invoice Maker</title>
+  <style>
+    :root{--ink:#222821;--muted:#777e75;--line:#e8e9e2;--green:#326747;--paper:#fff;--bg:#f6f4ef;--soft:#f2f5ef}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    .topbar{height:68px;border-bottom:1px solid #e9e7df;display:flex;align-items:center;padding:0 max(24px,calc((100vw - 1100px)/2));gap:10px;background:#faf9f5}.brand-mark{width:32px;height:32px;border-radius:10px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:17px}.brand{font-weight:700;letter-spacing:-.3px}.brand span{color:var(--green)}main{max-width:900px;margin:42px auto 72px;padding:0 22px}.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px;gap:16px}.eyebrow{text-transform:uppercase;letter-spacing:1.7px;font-size:11px;color:var(--green);font-weight:700}.heading h1{font-size:32px;letter-spacing:-1.2px;margin:3px 0 0}.heading p{margin:0;color:var(--muted);font-size:14px}
+    .sheet{background:var(--paper);border:1px solid #e9e9e2;border-radius:18px;box-shadow:0 12px 40px #35452d0a;padding:36px 42px}.toprow{display:flex;justify-content:space-between;gap:28px;padding-bottom:26px;border-bottom:1px solid var(--line)}.invoice-title h2{font-size:34px;line-height:1;margin:0 0 10px;letter-spacing:-1.5px}.invoice-title p{margin:0;color:var(--muted);font-size:13px}.meta{display:grid;grid-template-columns:auto 145px;align-items:center;gap:8px 12px;font-size:13px;color:var(--muted)}.meta label{text-align:right}.meta input{text-align:right}
+    .parties{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:22px 0 16px}.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);font-weight:700;margin-bottom:7px}.field{width:100%;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--ink);font:inherit;padding:6px 8px;outline:none}.field:hover,.field:focus{border-color:#dfe5dc;background:#fcfdfb}.party-name{font-weight:650;font-size:16px}.party-details{font-size:13px;color:var(--muted);margin-top:3px}.party-details.field{resize:vertical;min-height:48px}.customer-meta{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:13px;margin-top:4px}.customer-meta input{max-width:150px}.delivery{display:flex;flex-wrap:wrap;gap:10px 22px;padding:0 0 18px}.delivery label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}.delivery input{width:145px}
+    .items-head,.item{display:grid;grid-template-columns:minmax(150px,1fr) 60px 72px 100px 105px 30px;gap:7px;align-items:center}.items-head{background:var(--soft);border-radius:8px;padding:10px 10px;color:#586259;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}.items-head span:not(:first-child){text-align:right}.item{padding:8px 2px;border-bottom:1px solid var(--line)}.item input{text-align:right}.item .product{text-align:left}.product-wrap{position:relative;min-width:0}.product-wrap .product{text-align:left}.suggestions{position:absolute;z-index:5;top:100%;left:0;right:0;max-height:220px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px #26331f1a}.suggestion{display:flex;justify-content:space-between;gap:12px;width:100%;border:0;background:#fff;text-align:left;padding:9px 11px;color:var(--ink);font:inherit;cursor:pointer}.suggestion:hover,.suggestion:focus{background:var(--soft);outline:0}.suggestion small{color:var(--muted);white-space:nowrap}.no-match{padding:9px 11px;color:var(--muted);font-size:13px}.amount{text-align:right;font-variant-numeric:tabular-nums;padding-right:8px}.mobile-label{display:none}.remove{border:0;background:transparent;color:#9a9e96;border-radius:6px;font-size:19px;cursor:pointer;width:30px;height:30px}.remove:hover{color:#b33d34;background:#fff1ef}.add-row{margin:13px 0 22px;border:0;background:transparent;color:var(--green);font:600 14px inherit;cursor:pointer;padding:6px 3px}.add-row:hover{text-decoration:underline}
+    .summary{display:flex;justify-content:flex-end;border-top:1px solid var(--line);padding-top:16px}.summary-inner{width:300px}.sum-line{display:flex;justify-content:space-between;align-items:center;padding:5px 0;color:var(--muted);font-size:14px}.sum-line strong{color:var(--ink);font-weight:600}.sum-line input{width:110px;text-align:right}.sum-line.total{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-size:16px;color:var(--ink);font-weight:700}.sum-line.total strong{font-size:21px;color:var(--green);letter-spacing:-.5px}.words{margin-top:14px;font-size:13px;font-weight:600;font-style:italic}.note{margin-top:20px;padding-top:15px;border-top:1px solid var(--line)}.note .field{font-size:13px;color:var(--muted)}.actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px}.hint{font-size:12px;color:var(--muted)}.buttons{display:flex;gap:9px}.btn{border:1px solid #dfe2da;background:#fff;color:var(--ink);border-radius:9px;padding:10px 15px;font:600 13px inherit;cursor:pointer}.btn:hover{background:#f7f8f5}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.primary:hover{background:#28583a}.btn.whatsapp{color:#167746;border-color:#b9ddc8}.btn.whatsapp:hover{background:#eff9f2}
+    @media(max-width:650px){main{margin:14px auto 28px;padding:0 9px}.sheet{padding:18px 12px;border-radius:12px}.toprow{flex-direction:column;gap:16px}.invoice-title h2{font-size:29px}.meta{grid-template-columns:auto 1fr;max-width:100%}.meta label{text-align:left}.meta input{text-align:left}.parties{gap:16px;grid-template-columns:1fr;padding:18px 0}.party-details.field{min-height:42px}.customer-meta input{max-width:none}.delivery{gap:8px 14px}.delivery label{flex:1;min-width:145px}.delivery input{width:100%;display:block}.items-head{display:none}.item{position:relative;grid-template-columns:1fr 1fr;gap:7px 10px;margin:0 0 9px;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff}.product-wrap{grid-column:1/-1;padding-right:27px}.product-wrap .product{font-size:14px;padding:7px 5px}.qty-cell,.uom-cell,.rate-cell,.amount-cell{min-width:0}.mobile-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700;padding:0 4px}.item .field{padding:5px 4px;font-size:14px}.item .qty,.item .uom,.item .price{text-align:left}.amount-cell{display:flex;flex-direction:column;align-items:flex-end;justify-content:end}.amount{font-size:14px;padding:5px 4px}.remove{position:absolute;right:7px;top:7px;width:27px;height:27px}.add-row{margin:5px 0 18px;padding:8px 2px}.summary-inner{width:100%;max-width:none}.sum-line{padding:6px 2px}.sum-line input{font-size:15px}.words{line-height:1.45}.actions{align-items:stretch;flex-direction:column}.buttons{width:100%;flex-wrap:wrap}.btn{flex:1;padding:10px 8px;min-width:135px}.hint{line-height:1.4}}
+    @media print{@page{size:A5 portrait;margin:10mm}body{background:#fff;font-size:11px}.topbar,.heading,.actions,.add-row,.remove{display:none!important}main{max-width:none;margin:0;padding:0}.sheet{border:0;box-shadow:none;border-radius:0;padding:0}.field{border:0!important;background:transparent!important;padding-left:0!important;padding-right:0!important;resize:none;appearance:none}.toprow{padding-bottom:15px}.parties{padding:14px 0 10px}.items-head,.item{grid-template-columns:minmax(105px,1fr) 38px 43px 60px 70px 0;gap:4px}.items-head{font-size:9px;padding:7px}.item{padding:5px 0}.item .field{font-size:10px;padding:2px}.amount{font-size:10px;padding-right:3px}.delivery{padding-bottom:12px}.words{font-size:11px}.note{break-inside:avoid}.summary-inner{width:260px}}
+  </style>
 </head>
-
 <body>
-
-<div class="box">
-  <h2>Monthly Profit Calculator</h2>
-
-  <label>Monthly Purchase</label>
-  <input type="number" id="purchase" value="300000">
-
-  <label>Monthly Sales</label>
-  <input type="number" id="sales" value="240000">
-
-  <label>Monthly Return</label>
-  <input type="number" id="return" value="60000">
-
-  <div id="output"></div>
-</div>
-
-<script>
-function formatINR(num){
-  return "₹" + new Intl.NumberFormat('en-IN').format(Math.round(num));
-}
-
-function calculate(){
-
-  try {
-
-    let purchase = +document.getElementById("purchase").value;
-    let sales = +document.getElementById("sales").value;
-    let ret = +document.getElementById("return").value;
-
-    if (purchase <= 0 || sales < 0 || ret < 0){
-      document.getElementById("output").innerHTML = `<div class="error">Please enter valid positive values</div>`;
-      return;
+  <main>
+    <section class="sheet" aria-label="Invoice">
+      <div class="toprow"><div class="invoice-title"><h2>Invoice</h2><p>Thanks for your business.</p></div><div class="meta"><label for="invoice-number">Order no.</label><input class="field" id="invoice-number" required aria-label="Order number"><label for="invoice-date">Date</label><input class="field" id="invoice-date" type="date" aria-label="Invoice date"></div></div>
+      <div class="parties"><div><div class="section-label">From</div><input class="field party-name" value="Taste 'N' Bite" aria-label="Your business name"><textarea class="field party-details" placeholder="Address · Email · Phone" aria-label="Your business details">GHOSH BROTHERS FOOD SERVICES&#10;West Bengal · Mob. 8013247400</textarea></div><div><div class="section-label">Bill to</div><input class="field party-name" id="customer-name" placeholder="Customer name" aria-label="Customer name"><div class="customer-meta"><input class="field" id="customer-mobile" type="tel" placeholder="Contact number" aria-label="Customer contact number"></div><textarea class="field party-details" id="customer-address" placeholder="Customer address" aria-label="Customer details"></textarea></div></div>
+      <div class="delivery"><label>Delivery date <input class="field" id="delivery-date" type="date" aria-label="Delivery date"></label></div>
+      <div class="items-head"><span>Item name</span><span>Qty</span><span>UOM</span><span>Rate</span><span>Amount</span><span></span></div>
+      <div id="items"></div><button type="button" class="add-row" id="add-row">＋ Add a product</button>
+      <div class="summary"><div class="summary-inner"><div class="sum-line"><span>Amount</span><strong id="subtotal">₹0.00</strong></div><div class="sum-line"><label for="advance">Advance</label><input class="field" id="advance" type="number" min="0" step="0.01" value="0" aria-label="Advance payment"></div><div class="sum-line total"><span>Balance</span><strong id="balance">₹0.00</strong></div></div></div>
+      <div class="words" id="amount-words">Zero Rupees Only</div>
+      <div class="note"><div class="section-label">Note</div><input class="field" id="invoice-note" placeholder="Add a thank-you note or payment details" aria-label="Invoice note"></div>
+    </section>
+    <div class="actions"><span class="hint">Download a mobile-friendly copy of the invoice.</span><div class="buttons"><button class="btn" type="button" id="clear">Clear invoice</button><button class="btn" type="button" id="download">Download invoice</button></div></div>
+  </main>
+  <template id="item-template"><div class="item"><div class="product-wrap"><input class="field product" placeholder="Search products…" aria-label="Search products" autocomplete="off"><div class="suggestions" hidden></div></div><label class="qty-cell"><span class="mobile-label">Qty</span><input class="field qty" type="number" min="0" step="1" value="1" aria-label="Quantity"></label><label class="uom-cell"><span class="mobile-label">UOM</span><input class="field uom" value="PCS" aria-label="Unit of measure"></label><label class="rate-cell"><span class="mobile-label">Rate</span><input class="field price" type="number" min="0" step="0.01" placeholder="0.00" aria-label="Unit price"></label><div class="amount-cell"><span class="mobile-label">Amount</span><span class="amount">₹0.00</span></div><button class="remove" type="button" aria-label="Remove product">×</button></div></template>
+  <script>
+    const currency = new Intl.NumberFormat('en-IN', { style:'currency', currency:'INR' });
+    const items = document.querySelector('#items'); const template = document.querySelector('#item-template'); let productCatalog = [];
+    fetch('./products.json').then(r => { if (!r.ok) throw new Error('Could not load products.json'); return r.json(); }).then(data => { productCatalog = Array.isArray(data) ? data : []; }).catch(error => console.warn('Product search requires serving this page through XAMPP or another local web server.', error));
+    function addItem(name='',qty=1,price='') {
+      const row=template.content.firstElementChild.cloneNode(true); row.querySelector('.product').value=name; row.querySelector('.qty').value=qty; row.querySelector('.price').value=price; row.addEventListener('input',updateTotals);
+      const input=row.querySelector('.product'), suggestions=row.querySelector('.suggestions');
+      input.addEventListener('input',()=>{const query=input.value.trim().toLocaleLowerCase();suggestions.replaceChildren();if(!query){suggestions.hidden=true;return}const matches=productCatalog.filter(p=>String(p.product_name||'').toLocaleLowerCase().includes(query)).slice(0,12);if(!matches.length){const empty=document.createElement('div');empty.className='no-match';empty.textContent=productCatalog.length?'No matching products':'Product list is unavailable';suggestions.append(empty)}else matches.forEach(product=>{const option=document.createElement('button');option.type='button';option.className='suggestion';const label=document.createElement('span');label.textContent=product.product_name;const rate=document.createElement('small');rate.textContent=currency.format(Number(product.price)||0);option.append(label,rate);option.addEventListener('click',()=>{input.value=product.product_name;row.querySelector('.price').value=Number(product.price)||0;suggestions.hidden=true;updateTotals()});suggestions.append(option)});suggestions.hidden=false});
+      input.addEventListener('keydown',event=>{if(event.key==='Escape')suggestions.hidden=true;if(event.key==='Enter'&&!suggestions.hidden){const first=suggestions.querySelector('.suggestion');if(first){event.preventDefault();first.click()}}});
+      document.addEventListener('click',event=>{if(!row.contains(event.target))suggestions.hidden=true});row.querySelector('.remove').addEventListener('click',()=>{row.remove();updateTotals()});items.append(row);updateTotals();
     }
+    const ones=['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'],tens=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+    function underThousand(n){let s='';if(n>=100){s=ones[Math.floor(n/100)]+' Hundred';n%=100;if(n)s+=' '}if(n>=20){s+=tens[Math.floor(n/10)];n%=10;if(n)s+=' '+ones[n]}else if(n)s+=ones[n];return s}
+    function numberWords(n){n=Math.floor(Math.max(0,n));if(!n)return'Zero';const units=[[10000000,'Crore'],[100000,'Lakh'],[1000,'Thousand'],[1,'']];const parts=[];for(const[value,label]of units){const count=Math.floor(n/value);if(count){parts.push(underThousand(count)+(label?' '+label:''));n%=value}}return parts.join(' ')}
+    function updateTotals(){let subtotal=0;items.querySelectorAll('.item').forEach(row=>{const qty=Math.max(0,Number(row.querySelector('.qty').value)||0),rate=Math.max(0,Number(row.querySelector('.price').value)||0),amount=qty*rate;subtotal+=amount;row.querySelector('.amount').textContent=currency.format(amount)});const advance=Math.max(0,Number(document.querySelector('#advance').value)||0);document.querySelector('#subtotal').textContent=currency.format(subtotal);document.querySelector('#balance').textContent=currency.format(subtotal-advance);document.querySelector('#amount-words').textContent=numberWords(subtotal)+' Rupees Only'}
+    document.querySelector('#advance').addEventListener('input',updateTotals);document.querySelector('#add-row').addEventListener('click',()=>addItem());
+    function escapeHtml(value){return String(value??'').replace(/[&<>\"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[char]))}
+    document.querySelector('#download').addEventListener('click',()=>{
+      const order=ensureOrderNumber();
+      const sellerName=document.querySelector('.parties > div:first-child .party-name').value.trim();
+      const sellerDetails=document.querySelector('.parties > div:first-child .party-details').value.trim();
+      const customer=document.querySelector('#customer-name').value.trim();
+      const mobile=document.querySelector('#customer-mobile').value.trim();
+      const customerAddress=document.querySelector('#customer-address').value.trim();
+      const date=document.querySelector('#invoice-date').value;
+      const deliveryDate=document.querySelector('#delivery-date').value;
+      const note=document.querySelector('#invoice-note').value.trim();
+      const rows=[...items.querySelectorAll('.item')].map((row,index)=>`<article class="item"><div class="item-head"><span>${index+1}. ${escapeHtml(row.querySelector('.product').value||'Item')}</span><b>${escapeHtml(row.querySelector('.amount').textContent)}</b></div><div class="item-info">Qty: ${escapeHtml(row.querySelector('.qty').value||0)} ${escapeHtml(row.querySelector('.uom').value||'')} · Rate: ${escapeHtml(currency.format(Number(row.querySelector('.price').value)||0))}</div></article>`).join('');
+      const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Invoice ${escapeHtml(order)}</title><style>*{box-sizing:border-box}body{margin:0;padding:16px;background:#f6f4ef;color:#222821;font:15px/1.5 Arial,sans-serif}.invoice{max-width:620px;margin:0 auto;background:white;border:1px solid #e8e9e2;border-radius:14px;padding:24px}.head{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e8e9e2;padding-bottom:16px}.head h1{font-size:27px;margin:0}.muted{color:#777e75;white-space:pre-line;font-size:13px}.order{text-align:right;font-size:13px}.parties{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px 0}.label{font-size:10px;font-weight:bold;letter-spacing:1px;color:#777e75;text-transform:uppercase}.name{font-weight:bold}.items{border-top:1px solid #e8e9e2}.item{padding:11px 0;border-bottom:1px solid #e8e9e2}.item-head{display:flex;justify-content:space-between;gap:10px;font-weight:600}.item-info{font-size:12px;color:#777e75;margin-top:3px}.totals{margin:14px 0 0 auto;max-width:300px}.line{display:flex;justify-content:space-between;padding:4px 0}.balance{font-weight:bold;font-size:19px;color:#326747;border-top:1px solid #e8e9e2;padding-top:9px}.words,.note{margin-top:14px;font-size:13px}.words{font-style:italic;font-weight:600}.delivery{margin-top:12px;font-size:13px}.thanks{text-align:center;margin-top:20px;font-size:12px;font-weight:bold}@media(max-width:480px){body{padding:8px}.invoice{padding:17px 14px;border-radius:10px}.head h1{font-size:23px}.parties{gap:8px}.item-head{font-size:14px}}@media print{body{background:white;padding:0}.invoice{border:0;border-radius:0;padding:0;max-width:none}}</style></head><body><main class="invoice"><div class="head"><div><h1>Invoice</h1><div class="muted">${escapeHtml(sellerName)}\n${escapeHtml(sellerDetails)}</div></div><div class="order"><b>Order No.</b><br>${escapeHtml(order)}<br><b>Date</b><br>${escapeHtml(date||'—')}</div></div><div class="parties"><div><div class="label">Bill to</div><div class="name">${escapeHtml(customer||'—')}</div><div class="muted">${mobile?'Contact number: '+escapeHtml(mobile):''}${customerAddress?'\n'+escapeHtml(customerAddress):''}</div></div><div><div class="label">Delivery</div><div>${escapeHtml(deliveryDate||'—')}</div></div></div><section class="items">${rows||'<div class="item">No items</div>'}</section><div class="totals"><div class="line"><span>Amount</span><span>${escapeHtml(document.querySelector('#subtotal').textContent)}</span></div><div class="line"><span>Advance</span><span>${escapeHtml(currency.format(Number(document.querySelector('#advance').value)||0))}</span></div><div class="line balance"><span>Balance</span><span>${escapeHtml(document.querySelector('#balance').textContent)}</span></div></div><div class="words">${escapeHtml(document.querySelector('#amount-words').textContent)}</div>${note?`<div class="note"><b>Note:</b> ${escapeHtml(note)}</div>`:''}<div class="thanks">Thank you for your purchase!</div></main></body></html>`;
+      const blob=new Blob([html],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');
+      link.href=url;link.download=`invoice-${order.replace(/[^a-z0-9_-]+/gi,'-')}.html`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
 
-    if (sales + ret !== purchase){
-      document.getElementById("output").innerHTML = `<div class="error">Sales + Return must equal Purchase</div>`;
-      return;
-    }
-
-    let gr = (ret / purchase) * 100;
-
-    let grStatus = '';
-    if (gr <= 10) grStatus = '✅ Excellent';
-    else if (gr <= 15) grStatus = '👍 Acceptable';
-    else grStatus = '⚠️ High wastage';
-
-    // OPTION 1
-    let grossMargin1 = sales * 0.20;
-    let penalty1 = ret * 0.25;
-    let net1 = grossMargin1 - penalty1;
-
-    // OPTION 2
-    let freeReturn = purchase * 0.05;
-    let chargeable = Math.max(0, ret - freeReturn);
-    let grossMargin2 = sales * 0.18;
-    let penalty2 = chargeable * 0.25;
-    let net2 = grossMargin2 - penalty2;
-
-    let best = net1 > net2 ? "opt1" : "opt2";
-
-    document.getElementById("output").innerHTML = `
-
-      <div class="card warn">
-        <b>GR (Return %):</b> ${gr.toFixed(2)}% <br>
-        ${grStatus}
-      </div>
-
-      <table>
-        <tr>
-          <th>Metric</th>
-          <th>Option 1 (20%)</th>
-          <th>Option 2 (18%)</th>
-        </tr>
-        <tr>
-          <td>Sales Margin</td>
-          <td>${formatINR(grossMargin1)}</td>
-          <td>${formatINR(grossMargin2)}</td>
-        </tr>
-        <tr>
-          <td>Free Return</td>
-          <td>${formatINR(0)}</td>
-          <td>${formatINR(freeReturn)}</td>
-        </tr>
-        <tr>
-          <td>Chargeable Return</td>
-          <td>${formatINR(ret)}</td>
-          <td>${formatINR(chargeable)}</td>
-        </tr>
-        <tr>
-          <td>Penalty (25%)</td>
-          <td>${formatINR(penalty1)}</td>
-          <td>${formatINR(penalty2)}</td>
-        </tr>
-        <tr class="${best==='opt1'?'highlight':''}">
-          <td><b>Net Profit</b></td>
-          <td><b>${formatINR(net1)}</b></td>
-          <td><b>${formatINR(net2)}</b></td>
-        </tr>
-      </table>
-
-      <div class="card">
-        <b>Better Option:</b> ${net1 > net2 ? 'Option 1 (20%)' : 'Option 2 (18%)'}
-      </div>
-
-    `;
-
-  } catch (e){
-    document.getElementById("output").innerHTML = `<div class="error">Something went wrong</div>`;
-  }
-}
-
-// Auto calculate
-
-document.querySelectorAll("input").forEach(input => {
-  input.addEventListener("input", calculate);
-});
-
-calculate();
-
-</script>
-
+    function newOrderNumber(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().replace(/[-:T]/g,'').slice(0,12);return `INV-${date}`}
+    function ensureOrderNumber(){const field=document.querySelector('#invoice-number');if(!field.value.trim())field.value=newOrderNumber();return field.value.trim()}
+    document.querySelector('#invoice-number').addEventListener('blur',ensureOrderNumber);
+    function setCurrentDateTime(){const now=new Date(),date=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);document.querySelector('#invoice-date').value=date;document.querySelector('#delivery-date').value=date}
+    document.querySelector('#clear').addEventListener('click',()=>{items.replaceChildren();document.querySelector('#customer-name').value='';document.querySelector('#customer-mobile').value='';document.querySelector('#customer-address').value='';document.querySelector('#invoice-note').value='';document.querySelector('#invoice-number').value=newOrderNumber();document.querySelector('#advance').value=0;setCurrentDateTime();addItem()});document.querySelector('#invoice-number').value=newOrderNumber();setCurrentDateTime();addItem();
+  </script>
 </body>
 </html>
