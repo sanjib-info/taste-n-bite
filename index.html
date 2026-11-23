@@ -76,6 +76,9 @@
       #invoice-number{min-width:0}
       .meta #invoice-date{text-align:left;direction:ltr;justify-self:start}
       .meta #invoice-date::-webkit-date-and-time-value{text-align:left;margin-left:0}
+      .meta input[type=date],.delivery input[type=date]{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;text-align:left;direction:ltr;white-space:nowrap;background:#fff;border:1px solid #e2e8e3;border-radius:8px;padding:9px 8px}
+      .delivery label{display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:center;gap:10px;min-width:0;white-space:nowrap}
+      .meta #invoice-date{justify-self:stretch}
       .parties{gap:10px;padding:15px 0 12px}
       .parties>div{padding:11px;border-radius:9px}
       .delivery{gap:8px;padding:9px 10px}
